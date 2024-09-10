@@ -1,0 +1,116 @@
+{{#if condicao}}
+<br>
+<p><b><i>Ainda não foi cadastrada nenhuma nota.</i></b></p>
+<a href="/nota/cria">Crie uma nova nota</a>
+
+{{else}}
+<table class="table table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th style="width: 100px;">Chave</th>
+            <th>Título</th>
+            <th style="width: 100px;">Alterar Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each notas}}
+        <tr>
+            {{#if this.lida}}
+            <td>{{this.chave}}</td>
+            <td><a href="/nota/consulta/{{this.chave}}">{{this.titulo}}</a></td>
+            <td><a href="/nota/naolida/{{this.chave}}"><i class="bi bi-envelope-open-fill"></i></a></td>
+            {{else}}
+            <td><b>{{this.chave}}</b></td>
+            <td><a href="/nota/consulta/{{this.chave}}"><b>{{this.titulo}}</b></a></td>
+            <td><a href="/nota/lida/{{this.chave}}"><i class="bi bi-envelope-fill"></i></a></td>
+            {{/if}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtro de Notas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <form action="/" method="POST">
+        <div class="offcanvas-body justify-content-center">
+            <div>
+                <h4>Estado da nota</h4>
+                <div class="form-check">
+                    {{#if lida}}
+                        <input class="form-check-input" type="checkbox" name="estado_lida" value="lida" id="lida" checked />
+                    {{else}}
+                        <input class="form-check-input" type="checkbox" name="estado_lida" value="lida" id="lida"/>
+                    {{/if}}
+                    <label class="form-check-label" for="lida">Lida</label>
+                </div>
+
+                <div class="form-check">
+                    {{#if nao_lida}}
+                    <input class="form-check-input" type="checkbox" name="estado_n_lida" value="nao_lida" id="nao_lida" checked />
+                    {{else}}
+                    <input class="form-check-input" type="checkbox" name="estado_n_lida" value="nao_lida" id="nao_lida" />
+                    {{/if}}
+                    <label class="form-check-label" for="estado_n_lida">Não lida</label>
+                </div>
+
+            </div>
+
+            <div>
+                <h4>Importância da nota</h4>
+                <div class="form-check">
+                    {{#if i1}}
+                    <input class="form-check-input" type="checkbox" name="imp_1" value="1" id="1" checked/>
+                    {{else}}
+                    <input class="form-check-input" type="checkbox" name="imp_1" value="1" id="1"/>
+                    {{/if}}
+                    <label class="form-check-label" for="imp_1">1</label>
+                </div>
+
+                <div class="form-check">
+                    {{#if i2}}
+                     <input class="form-check-input" type="checkbox" name="imp_2" value="2" id="2" checked/>
+                    {{else}}
+                     <input class="form-check-input" type="checkbox" name="imp_2" value="2" id="2"/>
+                    {{/if}}
+                    <label class="form-check-label" for="imp_2">2</label>
+                </div>
+
+                <div class="form-check">
+                    {{#if i3}}
+                    <input class="form-check-input" type="checkbox" name="imp_3" value="3" id="3" checked/>                    
+                    {{else}}
+                     <input class="form-check-input" type="checkbox" name="imp_3" value="3" id="3"/>     
+                    {{/if}}
+                    <label class="form-check-label" for="imp_3">3</label>
+                </div>
+
+                <div class="form-check">
+                     {{#if i4}}
+                    <input class="form-check-input" type="checkbox" name="imp_4" value="4" id="4" checked />                    
+                    {{else}}
+                     <input class="form-check-input" type="checkbox" name="imp_4" value="4" id="4" /> 
+                    {{/if}}
+                    <label class="form-check-label" for="imp_4">4</label>
+                </div>
+
+                <div class="form-check">
+                     {{#if i5}}
+                    <input class="form-check-input" type="checkbox" name="imp_5" value="5" id="5" checked/>                    
+                    {{else}}
+                     <input class="form-check-input" type="checkbox" name="imp_5" value="5" id="5"/>     
+                    {{/if}}
+                    <label class="form-check-label" for="imp_5">5</label>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-success" type="submit" name="bt_filtro">Filtrar</button>
+
+    </form>
+
+</div>
+
+{{/if}}

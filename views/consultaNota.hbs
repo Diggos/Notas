@@ -1,0 +1,30 @@
+<h2 class="titulo">Consulta a Informações da Nota</h2>
+<br>
+<p><b>{{nota.titulo}}</b></p>
+<p>{{nota.texto}}</p>
+<p><b>Chave: </b>{{nota.chave}}</p>
+<p><b>Importância: </b>{{nota.importancia}}</p>
+<hr>
+
+<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExclusao">Deletar</button>
+<a href="/nota/altera/{{nota.chave}}"><button class="btn btn-success">Alterar</button></a>
+<br><br><br>
+<a href="/">Voltar</a>
+
+<div class="modal" tabindex="-1" id="modalExclusao">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Exclusão de Nota</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja realmente excluir a nota "{{nota.titulo}}"?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="/nota/deleta/{{nota.chave}}"><button type="button" class="btn btn-danger">Excluir</button></a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

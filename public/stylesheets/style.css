@@ -1,0 +1,17 @@
+table {
+  margin-top: 80px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+thead{
+    text-align: center;
+    font-weight: bold;
+}
+tbody > tr{
+    text-align: center;
+  }
+nav{
+   background-color:  #cfe2ff;
+   margin-bottom: 40px;
+  }

@@ -1,0 +1,20 @@
+<h2 class="titulo">Alteração de nota de texto</h2>
+<form method='POST' action='/nota/altera/{{nota.chave}}'>
+    <label for="chave" class="form-label">Chave</label>
+    <input type='text' name='chave' value="{{nota.chave}}" size="30" class="form-control" readonly />
+    <label for="titulo" class="form-label">Título</label>
+    <input type='text' name='titulo' value="{{nota.titulo}}" size="60" class="form-control" />
+    <label for="importancia" class="form-label">Importância da Nota</label>
+    <input type='number' name='importancia' value="{{nota.importancia}}" max="5" min="1" class="form-control" />
+    <label for="texto" class="form-label">Texto da Nota</label>
+    <textarea rows="5" cols="57" name='texto' class="form-control">{{nota.texto}}</textarea>
+    <div class="form-check">
+        {{#if nota.lida}}
+        <input type="checkbox" name="status" id="status" class="form-check-input" checked>
+        {{else}}
+        <input type="checkbox" name="status" id="status" class="form-check-input">
+        {{/if}}
+        <label for="status" class="form-check-label">Nota Lida</label>
+    </div>
+    <button type="submit" class="btn btn-success">Alterar</button>
+    <a h
