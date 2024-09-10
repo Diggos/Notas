@@ -1,0 +1,4 @@
+# arquivo de configuração do projeto no VS Code
+1.ProjetoNodeJS.code-workspace
+# pasta com pacotes do NodeJs
+node_modules/
