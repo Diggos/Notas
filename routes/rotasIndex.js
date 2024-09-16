@@ -5,7 +5,7 @@ var controllerIndex = require('../controller/controllerIndex.js')
 router.get('/', controllerIndex.tela_principal);
 /* POST home page. */
 router.post('/', controllerIndex.tela_principal);
-
+router.get('/ajuda', controllerIndex.ajuda);
 router.get('/sobre', controllerIndex.sobre);
 
 module.exports = router;
